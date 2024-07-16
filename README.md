@@ -1,7 +1,5 @@
 poetry run uvicorn app.main:app --host localhost --port 8000 --reload
 
-poetry run pytest --dburl=postgresql://postgres:postgres@localhost:5433/postgres
-
 ##  API
 
 api works
@@ -39,7 +37,15 @@ POSTGRES_DB = "postgres"
 
 ## PyTest
 
+`poetry run pytest --dburl=postgresql://postgres:postgres@localhost:5433/postgres`
+
+db_url hardcoded so `poetry run pytest` works without passing --db_url - see `tests/conftest.py`.
+
 pytest can't connect to DB using this `postgresql://postgres:postgres@localhost:5433/postgres` hard coded.
 
 ![PYTEST CANNOT CONNECT TO DB](./images/pytest.png)
+
+https://stackoverflow.com/questions/76856025/unable-to-run-pytest-from-host-using-db-in-docker-container-operationalerrorco
+
+https://github.com/Python-Test-Engineer/yt-docker-pytest-poetry-fixtup/tree/main - links to article and video
 
