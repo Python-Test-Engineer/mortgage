@@ -10,12 +10,17 @@ api works
 
 ## Docker
 
-docker compose uses postgres for all and I use my version with PgAdmin
+docker compose uses postgres for all and I use my version with PgAdmin - see `docker/docker.compose.yml`.
 
-environment:
-- POSTGRES_DB=postgres 
-- POSTGRES_USER=postgres
-- POSTGRES_PASSWORD=postgres
+```
+  postgres:  
+    container_name: postgres_local  
+    image: postgres:16-alpine #postgres:
+    environment:
+      - POSTGRES_DB=postgres # optional
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+```
 
 tables created in DB
 
@@ -25,11 +30,12 @@ sql crud works OK - tested with publisher and employee in slq_postgres folder
 
 The following are used in Python CRUD in sql_postgres folder
 
+```
 POSTGRES_HOST = "host.docker.internal"
 POSTGRES_USER = "postgres"
 POSTGRES_PASSWORD = "postgres"
 POSTGRES_DB = "postgres"
-
+```
 
 ## PyTest
 
