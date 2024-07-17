@@ -29,4 +29,6 @@ app.include_router(routes.router, tags=["MortgageCalculator"], prefix="/api/v1")
 
 @app.get("/api/healthchecker")
 def root():
-    return {"message": "CRAIG TEST: The API is LIVE!!"}
+    return {
+        "message": "💪🏆🎉 CRAIG TEST: The API is LIVE with latest version of FastAPI!"
+    }
