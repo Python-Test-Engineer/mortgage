@@ -14,7 +14,17 @@ services:
       # - ./db-data/:/var/lib/postgresql/data/
       # uses named volume in container not a bound mount volume
       - data:/var/lib/postgresql/data
-
+  db_test:
+    image: postgres:latest
+    container_name: postgres_test
+    environment:
+      - POSTGRES_DB=postgres # optional
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5433:5432"  # 5433 is the port for the test database
+    restart: always
+    
   pg-admin:
     # image: dpage/pgadmin4:atest 
     image: dpage/pgadmin4:8.9

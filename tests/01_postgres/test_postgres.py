@@ -41,11 +41,8 @@ def test_check_rows_in_employee_table_not_zero():
 
     cursor = conn.cursor()
 
-    # Creating table as per requirement
-    sql = f""" 
-            SELECT COUNT(*) FROM employee
-               
-            """
+    # Ensure employee table has been created and loaded with data from sql_postgres
+    sql = f""" SELECT COUNT(*) FROM employee"""
     try:
         cursor.execute(sql)
         result = cursor.fetchone()

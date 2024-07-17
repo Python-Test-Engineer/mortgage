@@ -11,7 +11,7 @@ from app.main import app
 
 def pytest_addoption(parser):
     parser.addoption(
-        "--dburl",  # For Postgres use "postgresql://user:password@localhost/dbname"
+        "--dburl",  # python -m pytest --dburl=postgresql://postgres:postgres@localhost:5432/postgres -vs
         action="store",
         default="sqlite:///./test_db.db",  # Default uses SQLite in memory db
         help="Database URL to use for tests.",

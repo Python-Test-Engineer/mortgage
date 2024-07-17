@@ -1,4 +1,3 @@
-poetry run uvicorn app.main:app --host localhost --port 8000 --reload
 
 ##  API
 
@@ -54,7 +53,9 @@ Tests for `tests/01_postgres` work OK using:
 ```
 as we get PASS for connecting and getting row count > 0 for employee table
 
-pytest can't connect to DB using this `postgresql://postgres:postgres@localhost:5433/postgres` hard coded.
+pytest can't connect to DB using this `postgresql://postgres:postgres@localhost:5432/postgres` even with changes of localhost to `host.docker.internal` and `127.0.0.1`
+
+"postgresql://postgres:postgres@0.0.0.0:5432/postgres"
 
 ![PYTEST CANNOT CONNECT TO DB](./images/pytest.png)
 
