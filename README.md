@@ -40,7 +40,20 @@ POSTGRES_DB = "postgres"
 
 ## PyTest
 
-`poetry run pytest --dburl=postgresql://postgres:postgres@localhost:5433/postgres`
+`python -m pytest --dburl=postgresql://postgres:postgres@localhost:5433/postgres`
+
+works OK for SQLite
+
+Tests for 01_postgres work OK using:
+
+```
+    conn = psycopg2.connect(
+        database="postgres",
+        user="postgres",
+        password="postgres",
+        host="host.docker.internal",
+    )
+```
 
 db_url hardcoded so `poetry run pytest` works without passing --db_url - see `tests/conftest.py`.
 

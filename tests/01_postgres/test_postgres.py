@@ -17,6 +17,24 @@ def test_can_connect_to_db():
     )
     if conn:
         print(f"\tConnected to DB...\n")
+        assert True
+        # print(conn)
+    else:
+        print("NO CONNECTION\n")
+        assert False
+
+
+def test_check_rows_in_employee_table_not_zero():
+
+    # Establishing the connection
+    conn = psycopg2.connect(
+        database="postgres",
+        user="postgres",
+        password="postgres",
+        host="host.docker.internal",
+    )
+    if conn:
+        print(f"\tConnected to DB...\n")
         # print(conn)
     else:
         print("NO CONNECTION\n")
@@ -28,7 +46,6 @@ def test_can_connect_to_db():
             SELECT COUNT(*) FROM employee
                
             """
-
     try:
         cursor.execute(sql)
         result = cursor.fetchone()
