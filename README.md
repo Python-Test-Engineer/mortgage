@@ -2,6 +2,8 @@ poetry run uvicorn app.main:app --host localhost --port 8000 --reload
 
 ##  API
 
+fastapi run .\app\main.py      
+
 api works
 
 ![API HEALTHCHECKER OK](./images/api-healthchecker-OK.png)
